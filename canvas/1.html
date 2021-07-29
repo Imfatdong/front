@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" height="500" width="500">
+    您的浏览器不支持canvas
+</canvas>
+</body>
+<script>
+    const myCanvas = document.getElementById("myCanvas");
+    let context = myCanvas.getContext('2d');
+    //先填充颜色才能绘制矩形，否则无颜色
+    context.fillStyle = 'yellow';
+    context.fillRect(0, 0, 100, 100);
+
+    let x = 0, y = 0;
+    setInterval(() => {
+        context.clearRect(x, y, 100, 100);
+        context.fillRect(x += 50, y, 100, 100);
+        (x > 500) && (x = 0)
+    }, 100)
+
+
+</script>
+</html>
